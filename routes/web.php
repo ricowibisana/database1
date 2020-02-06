@@ -11,8 +11,20 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/product', 'productController@index');
+
+Route::get('/product/tambah', 'productController@tambah');
+
+Route::post('/product/store', 'productController@store');
+
+Route::get('/product/edit/{id}', 'productController@edit');
+
+Route::put('/product/update/{id}', 'productController@update');
+
+Route::get('/product/hapus/{id}', 'productController@delete');
+
+Route::get('/stisla', function() {
+	return view('index');
+
 });
 
-Route::get('/product', 'ProductController@index');

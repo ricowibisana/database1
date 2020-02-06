@@ -1,69 +1,100 @@
 <!DOCTYPE html>
-<html>
-<title>KoalaPo</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-body,h1 {font-family: "Raleway", Arial, sans-serif}
-h1 {letter-spacing: 6px}
-.w3-row-padding img {margin-bottom: 12px}
-</style>
-<body>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!-- !PAGE CONTENT! -->
-<div class="w3-content" style="max-width:1500px">
+        <title>Laravel</title>
 
-<!-- Header -->
-<header class="w3-panel w3-center w3-opacity" style="padding:128px 16px">
-  <h1 class="w3-xlarge">PHOTOGRAPHER</h1>
-  <h1>KoalaPo</h1>
-  
-  <div class="w3-padding-32">
-    <div class="w3-bar w3-border">
-      <a href="#" class="w3-bar-item w3-button">Home</a>
-      <a href="#" class="w3-bar-item w3-button w3-light-grey">Portfolio</a>
-      <a href="#" class="w3-bar-item w3-button">Contact</a>
-    </div>
-  </div>
-</header>
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
-<!-- Photo Grid -->
-<div class="w3-row-padding w3-grayscale" style="margin-bottom:128px">
-  <div class="w3-half">
-    <img src="{{ ('img/1.jpg') }}" style="width: 100%" >
-    <img src="{{ ('img/2.jpg') }}" style="width: 100%" >
-    <img src="{{ ('img/3.jpg') }}" style="width: 100%" >
-    <img src="{{ ('img/4.jpg') }}" style="width: 100%" >
-    <img src="{{ ('img/5.jpg') }}" style="width: 100%" >
-    <img src="{{ ('img/6.jpg') }}" style="width: 100%" >
-  </div>
+        <!-- Styles -->
+        <style>
+            html, body {
+                background-color: #fff;
+                color: #636b6f;
+                font-family: 'Nunito', sans-serif;
+                font-weight: 200;
+                height: 100vh;
+                margin: 0;
+            }
 
-  <div class="w3-half">
-    <img src="{{ ('img/7.jpg') }}" style="width: 100%" >
-    <img src="{{ ('img/8.jpg') }}" style="width: 100%" >
-    <img src="{{ ('img/9.jpg') }}" style="width: 100%" >
-    <img src="{{ ('img/10.jpg') }}" style="width: 100%" >
-    <img src="{{ ('img/11.jpg') }}" style="width: 100%" >
-    <img src="{{ ('img/12.jpg') }}" style="width: 100%" >
-  </div>
-</div>
-  
-<!-- End Page Content -->
-</div>
+            .full-height {
+                height: 100vh;
+            }
 
-<!-- Footer -->
-<footer class="w3-container w3-padding-64 w3-light-grey w3-center w3-large"> 
-  <i class="fa fa-facebook-official w3-hover-opacity"></i>
-  <i class="fa fa-instagram w3-hover-opacity"></i>
-  <i class="fa fa-snapchat w3-hover-opacity"></i>
-  <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-  <i class="fa fa-twitter w3-hover-opacity"></i>
-  <i class="fa fa-linkedin w3-hover-opacity"></i>
-  <p>Powered by <a href="https://www.youtube.com/channel/UCq8622X8yZBVfTfq-ooUGWQ" target="_blank" class="w3-hover-text-green">KoalaBro</a></p>
-</footer>
+            .flex-center {
+                align-items: center;
+                display: flex;
+                justify-content: center;
+            }
 
-</body>
+            .position-ref {
+                position: relative;
+            }
+
+            .top-right {
+                position: absolute;
+                right: 10px;
+                top: 18px;
+            }
+
+            .content {
+                text-align: center;
+            }
+
+            .title {
+                font-size: 84px;
+            }
+
+            .links > a {
+                color: #636b6f;
+                padding: 0 25px;
+                font-size: 13px;
+                font-weight: 600;
+                letter-spacing: .1rem;
+                text-decoration: none;
+                text-transform: uppercase;
+            }
+
+            .m-b-md {
+                margin-bottom: 30px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="flex-center position-ref full-height">
+            @if (Route::has('login'))
+                <div class="top-right links">
+                    @auth
+                        <a href="{{ url('/home') }}">Home</a>
+                    @else
+                        <a href="{{ route('login') }}">Login</a>
+
+                        @if (Route::has('register'))
+                            <a href="{{ route('register') }}">Register</a>
+                        @endif
+                    @endauth
+                </div>
+            @endif
+
+            <div class="content">
+                <div class="title m-b-md">
+                    Laravel
+                </div>
+
+                <div class="links">
+                    <a href="https://laravel.com/docs">Docs</a>
+                    <a href="https://laracasts.com">Laracasts</a>
+                    <a href="https://laravel-news.com">News</a>
+                    <a href="https://blog.laravel.com">Blog</a>
+                    <a href="https://nova.laravel.com">Nova</a>
+                    <a href="https://forge.laravel.com">Forge</a>
+                    <a href="https://vapor.laravel.com">Vapor</a>
+                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </body>
 </html>
