@@ -11,6 +11,7 @@
                                 <th>Nama</th>
                                 <th>Harga</th>
                                 <th>Jumlah</th>
+                                <th>Gambar</th>
                                 <th>Opsi</th>
                             </tr>
                         </thead>
@@ -19,7 +20,8 @@
                             <tr>
                                 <td>{{ $p->nama }}</td>
                                	<td>{{ $p->harga }}</td>
-                               	<td>{{ $p->jumlah }}</td>
+                                <td>{{ $p->jumlah }}</td>
+                                <td> <img src="{{ url('image/'.$p->image) }}" width="150px"> </td>
                                 <td>
                                 	<a href="/product/tambah/" class="btn btn-danger">Tambah</a>
                                     <a href="/product/edit/{{ $p->id }}" class="btn btn-secondary">Edit</a>
