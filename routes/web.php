@@ -23,6 +23,8 @@ Route::put('/product/update/{id}', 'productController@update');
 
 Route::get('/product/hapus/{id}', 'productController@delete');
 
+Route::get('/product/cari','productController@cari');
+
 Route::get('/stisla', function() {
 	return view('index');
 

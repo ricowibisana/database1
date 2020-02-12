@@ -28,9 +28,14 @@
                                     <a href="/product/hapus/{{ $p->id }}" class="btn btn-danger">Hapus</a>
                                 </td>
                             </tr>
+
                             @endforeach
                         </tbody>
                     </table>
+
+                    <br/>
+                    {{ $product->links() }}
+
                 </div>
             </div>
 @stop

@@ -26,11 +26,6 @@
             <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="fas fa-bars"></i></a></li>
             <li><a href="#" data-toggle="search" class="nav-link nav-link-lg d-sm-none"><i class="fas fa-search"></i></a></li>
           </ul>
-          <div class="search-element">
-            <input class="form-control" type="search" placeholder="Search" aria-label="Search" data-width="250">
-            <button class="btn" type="submit"><i class="fas fa-search"></i></button>
-            <div class="search-backdrop"></div>
-          </div>
         </form>
       </nav>
 
@@ -40,9 +35,10 @@
           <div class="section-header">
             <h1>Form</h1>
             <div class="section-header-breadcrumb">
-              <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
-              <div class="breadcrumb-item"><a href="#">Bootstrap Components</a></div>
-              <div class="breadcrumb-item">Form</div>
+                <form action="/product/cari" method="GET">
+					<input type="text" name="cari" placeholder="Cari Product .." value="{{ old('cari') }}">
+					<input type="submit" value="CARI">
+				</form>
             </div>
           </div>
 

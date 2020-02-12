@@ -4,6 +4,8 @@ use Illuminate\Database\Seeder;
 
 use Faker\Factory as Faker;
 
+use App\Product;
+
 class ProductSeeder extends Seeder
 {
     /**
@@ -13,19 +15,7 @@ class ProductSeeder extends Seeder
      */
     public function run()
     {
-        // data faker indonesia
-        $faker = Faker::create('id_ID');
-
-        // membuat data dummy sebanyak 10 record
-        for($x = 1; $x <= 10; $x++){
-
-        	// insert data dummy pegawai dengan faker
-        	DB::table('product')->insert([
-        		'nama' => $faker->name,
-        		'product' => $faker->tld,
-        	]);
-
-        }
-
+ 
+		Factory(App\Product::class,5)->create();	
     }
 }

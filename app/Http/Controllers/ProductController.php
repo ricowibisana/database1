@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\File;
 
 use Illuminate\Support\Facades\Storage;
 
+use Illuminate\Support\Facades\DB;
+
 use App\Product;
 
 class productController extends Controller
@@ -17,6 +19,9 @@ class productController extends Controller
     public function index()
     {
     	$product= Product::all();
+
+      $product = DB::table('product')->paginate(1);
+
     	return view('content/product', ['product' => $product]);
     }
 
@@ -97,8 +102,21 @@ public function delete($id)
 	    $product->delete();
 	    return redirect('product');
 	}
-
 	
+  public function cari(Request $request)
+  {
+    // menangkap data pencarian
+    $cari = $request->cari;
+
+    // mengambil data dari table product sesuai pencarian data
+    $product = DB::table('product')
+    ->where('nama','like',"%".$cari."%")
+    ->paginate();
+
+        // mengirim data product ke view index
+    return view('content/product', ['product' => $product]);
+
+  }
 	 
 }
 
