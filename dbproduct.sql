@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 12 Feb 2020 pada 03.06
+-- Waktu pembuatan: 19 Feb 2020 pada 10.33
 -- Versi server: 10.1.36-MariaDB
 -- Versi PHP: 7.2.11
 
@@ -70,6 +70,30 @@ INSERT INTO `product` (`id`, `nama`, `harga`, `jumlah`, `image`, `created_at`, `
 (8, 'Harber-Wolff', '39479', '10', 'ab4d6f4d7a09e90ffce8de1eb7779675.jpg', '2020-02-11 18:58:31', '2020-02-11 18:58:31'),
 (9, 'Barrows-Leuschke', '32955', '10', '1581f127bdb2d0552832a97c20c8ad3f.jpg', '2020-02-11 18:58:32', '2020-02-11 18:58:32');
 
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email_verified_at` timestamp NULL DEFAULT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'Rico', 'ricowibisana69@gmail.com', NULL, '$2y$10$QFVsKO5oDWfb/v4XfCUUXeQiebdjrh/Ra.V0ry7KBij248VZ0Tzt6', NULL, '2020-02-17 09:53:43', '2020-02-17 09:53:43');
+
 --
 -- Indexes for dumped tables
 --
@@ -87,6 +111,12 @@ ALTER TABLE `product`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indeks untuk tabel `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
@@ -101,6 +131,12 @@ ALTER TABLE `migrations`
 --
 ALTER TABLE `product`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT untuk tabel `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
